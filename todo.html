@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OnePlus</title>
+  <link rel="icon" href="/images/favicon.ico">
+</head>
+<body>
+
+<div class="upper">
+
+</div>
+    <div class="clock">
+      <div class="clock-face">
+                <a href="icons" class="bttn"> <i class="arrow left"></i></a>
+
+                <div class="dial">
+                </div>
+                <div class="box" id="heading">
+
+                <h1><%= listTitle %>! </h1>
+            </div>
+            <div class="box">
+
+                   <% for(var i=0;i<newListItem.length;i++){ %>
+                     <div class="item">
+                       <input type="checkbox">
+                 <p><%= newListItem[i] %></p>
+                  </div>
+                <%  } %>
+                <form clsss="item" action="/" method="post">
+                  <input id="nn" type="text" name="newField" placeholder="New Item" autocomplete="off">
+                  <button type="submit" name="list" value=<%= listTitle %>>+</button>
+                </form>
+
+            </div>
+
+
+        <a href="icons" class="bttn"> <i class="arrow right"></i></a>
+      </div>
+    </div>
+
+<div class="lower">
+
+
+  <div class="home">
+    <!-- <img class="home-img" src="images/home2.png" alt="">
+    <a href="/"> <h1 class="home-text">HOME</h1></a> -->
+    <a href="/"><button class="btn button3" type="submit" name="button">HOME</button></a>
+  </div>
+
+  <div class="buy">
+  <a href="/checkout"><button class="btn2 button3" type="submit" name="button">Buy</button></a>
+  </div>
+
+  <style>
+    html {
+
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      background-color: #E4E9FD;
+      /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+      min-height: 1000px; */
+        /* background: radial-gradient(circle farthest-side, red, black); */
+          background-image: radial-gradient(circle, white,red , black);
+
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+    }
+    .bttn{
+      position: absolute;
+      left:470px;
+      top:170px;
+
+
+    }
+
+    .clock {
+      background-color: black;
+      width: 40rem;
+      height: 40rem;
+      border: 7px solid black;
+      border-radius: 20%;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width: 40%;
+      height: 6px;
+      background: white;
+      position: absolute;
+      top: 45%;
+      left:10%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition:all 0.5s;
+      transition-timing-function: cubic-bezier(0.26, 3.46, 0.58, 1);
+    }
+    .hour-hand{
+      width:25%;
+      position: absolute;
+      top: 180px;
+      left:100px;
+    }
+    .upper{
+      height: 100px;
+      width: 200px;
+      background-color: black;
+      position: absolute;
+      left:665px;
+      top:70px;
+      display: inline-block;
+      border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+    .lower{
+      height: 100px;
+      width: 200px;
+      background-color: black;
+      position: absolute;
+      left:665px;
+      bottom:55px;
+      display: inline-block;
+      border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  position: absolute;
+  top:36px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  position: absolute;
+  right:545px;
+  top:36px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.dial{
+  background-color: black;
+  height: 40px;
+  width: 20px;
+  border-radius: 20%;
+  position: relative;
+  top:189px;
+  left:425px;
+  z-index: 1;
+}
+
+.img{
+  height:50px;
+  weight:50px;
+  position: relative;
+  bottom:280px;
+}
+.home{
+  position: relative;
+  bottom:300px;
+  right:600px;
+}
+.home-img{
+  height: 60px;
+  width: 60px;
+}
+.home-text{
+  font-size: 25px;;
+}
+
+.home{
+position: relative;
+bottom:300px;
+right:600px;
+}
+
+.buy{
+  position: absolute;
+  bottom:150px;
+  left:800px;
+}
+.buy-img{
+height: 60px;
+width: 60px;
+}
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+.btn {
+  width: 150px;
+
+  height: 70px;
+background-color: black;
+  border: none;
+  /* color: white; */
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 50px 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn2{
+  width: 150px;
+  height: 70px;
+background-color: black;
+  border: none;
+  /* color: white; */
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 30px -150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button3 {
+  /* background-color: white; */
+  color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.button3:hover {
+  background-color:white;
+  border: 2px solid black;
+  color: red;
+  font-size:20px;
+  height: 70px;
+}
+
+  </style>
+
+  <script>
+
+
+  </script>
+</body>
+</html>

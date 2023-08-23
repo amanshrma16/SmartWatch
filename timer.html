@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OnePlus</title>
+  <link rel="icon" href="/images/favicon.ico">
+
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="upper">
+
+        </div>
+                <a href="icons" class="bttn"> <i class="arrow left"></i></a>
+                <div class="timer">
+                    <div class="timer__controls">
+                      <form name="customForm" id="custom">
+                        <input type="text" name="minutes" placeholder="Enter Minutes">
+                      </form>
+                    </div>
+                    <div class="display">
+                      <h1 class="display__time-left"></h1>
+                      <p class="display__end-time"></p>
+                    </div>
+                  </div>
+
+                  <form href="timer" class="inline">
+                      <button href="timer" type="submit" class="sub-btn">Reset</button>
+                  </form>
+<!-- <button type="button" id="myBtn" name="button">Start</button> -->
+
+                <div class="dial">
+                </div>
+
+<div class="lower">
+        <a href="icons" class="bttn"> <i class="arrow right"></i></a>
+      </div>
+    </div>
+
+    <div class="home">
+      <!-- <img class="home-img" src="images/home2.png" alt="">
+      <a href="/"> <h1 class="home-text">HOME</h1></a> -->
+      <a href="/"><button class="btn button3" type="submit" name="button">HOME</button></a>
+    </div>
+
+    <div class="buy">
+    <a href="/checkout"><button class="btn2 button3" type="submit" name="button">Buy</button></a>
+    </div>
+
+  <style>
+    html {
+
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+
+      background-color: #E4E9FD;
+      /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+      min-height: 1000px; */
+        /* background: radial-gradient(circle farthest-side, red, black); */
+          background-image: radial-gradient(circle, white,red , black);
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+      overflow: hidden;
+    }
+    .bttn{
+      position: absolute;
+      left:470px;
+      top:170px;
+
+
+    }
+
+    .clock {
+      background-color: black;
+      width: 40rem;
+      height: 40rem;
+      border: 7px solid black;
+      border-radius: 20%;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width: 40%;
+      height: 6px;
+      background: white;
+      position: absolute;
+      top: 45%;
+      left:10%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition:all 0.5s;
+      transition-timing-function: cubic-bezier(0.26, 3.46, 0.58, 1);
+    }
+    .hour-hand{
+      width:25%;
+      position: absolute;
+      top: 180px;
+      left:100px;
+    }
+    .upper{
+      height: 90px;
+      width: 200px;
+      background-color: black;
+      position: absolute;
+      left:100px;
+      bottom:423px;
+      display: inline-block;
+      border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        ;
+    }
+    .lower{
+      height: 90px;
+      width: 200px;
+      background-color: black;
+      position: fixed;
+      left:103px;
+      bottom:-120px;
+      display: inline-block;
+      border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  position: absolute;
+  bottom:385px;
+  right:94px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  position: absolute;
+  right:545px;
+  top:36px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.dial{
+  background-color: black;
+  height: 40px;
+  width: 20px;
+  border-radius: 20%;
+  position: relative;
+  top:64px;
+  left:425px;
+  z-index: 1;
+}
+.sub-btn{
+  font-size:1.4rem;
+  height:23px;
+  width:60px;
+  position:relative;
+  top:240px;
+  background-color: white;
+  color: black;
+  border: 2px solid;
+  border-radius:10px;
+}
+
+.img{
+  height:50px;
+  weight:50px;
+  position: relative;
+  bottom:280px;
+}
+.home{
+  position: relative;
+  bottom:273px;
+  right:600px;
+}
+.home-img{
+  height: 60px;
+  width: 60px;
+}
+.home-text{
+  font-size: 25px;;
+}
+
+.display__time-left {
+  padding-top:20px;
+  font-weight: 100;
+  font-size: 12rem;
+  margin: 0;
+  color: white;
+  text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
+}
+
+.timer {
+  display: flex;
+  height: 100px;;
+  flex-direction: column;
+}
+
+.timer__controls {
+  display: flex;
+  width:200px;
+  border-radius:20px;
+  position:relative;
+  left:100px;
+}
+
+.timer__controls > * {
+  flex: 1;
+}
+
+.timer__controls form {
+  padding-top:15px;
+  flex: 1;
+  display: flex;
+
+}
+
+.timer__controls input {
+  flex: 1;
+  border: 0;
+  padding: 1rem;
+    border-radius:10px;
+
+}
+
+.display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.display__end-time {
+  font-size: 4rem;
+  color: white;
+}
+
+.home{
+position: relative;
+bottom:273px;
+right:600px;
+}
+
+.buy{
+  position: absolute;
+  bottom:150px;
+  left:800px;
+}
+.buy-img{
+height: 60px;
+width: 60px;
+}
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+.btn {
+  width: 150px;
+
+  height: 70px;
+background-color: black;
+  border: none;
+  /* color: white; */
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 50px 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn2{
+  width: 150px;
+  height: 70px;
+background-color: black;
+  border: none;
+  /* color: white; */
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 30px -150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button3 {
+  /* background-color: white; */
+  color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.button3:hover {
+  background-color:white;
+  border: 2px solid black;
+  color: red;
+  font-size:20px;
+  height: 70px;
+}
+@media (max-width :997px){
+.home{
+  position: absolute;
+  top:450px;
+  right:300px;
+}
+.buy{
+  position: absolute;
+  top:470px;
+ left:520px;
+
+}
+}
+
+  </style>
+<script>
+
+  let countdown;
+  const timerDisplay = document.querySelector('.display__time-left');
+  const endTime = document.querySelector('.display__end-time');
+  const buttons = document.querySelectorAll('[data-time]');
+  timerDisplay.textContent ='00:00';
+
+  function timer(seconds) {
+
+    clearInterval(countdown);
+
+    const now = Date.now();
+    const then = now + seconds * 1000;
+    displayTimeLeft(seconds);
+    displayEndTime(then);
+
+    countdown = setInterval(() => {
+      const secondsLeft = Math.round((then - Date.now()) / 1000);
+
+      if(secondsLeft < 0) {
+        clearInterval(countdown);
+        return;
+      }
+      displayTimeLeft(secondsLeft);
+    }, 1000);
+  }
+
+  function displayTimeLeft(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
+    const display = `${minutes}:${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
+    timerDisplay.textContent = display;
+  }
+
+  function displayEndTime(timestamp) {
+    const end = new Date(timestamp);
+    const hour = end.getHours();
+    const adjustedHour = hour > 12 ? hour - 12 : hour;
+    const minutes = end.getMinutes();
+    endTime.textContent = `Be Back At ${adjustedHour}:${minutes < 10 ? '0' : ''}${minutes}`;
+  }
+
+  // function startTimer() {
+  //   document.customForm.addEventListener('submit', function(e) {
+  //     e.preventDefault();
+  //     const mins = this.minutes.value;
+  //     console.log(mins);
+  //     timer(mins * 60);
+  //     this.reset();
+  //   });
+  // }
+  //
+  // document.getElementById("myBtn").addEventListener("click",startTimer);
+
+
+  function startTimer() {
+    const seconds = parseInt(this.dataset.time);
+    timer(seconds);
+  }
+
+  buttons.forEach(button => button.addEventListener('click', startTimer));
+  document.customForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const mins = this.minutes.value;
+    console.log(mins);
+    timer(mins * 60);
+    this.reset();
+  });
+
+  </script>
+</body>
+</html>

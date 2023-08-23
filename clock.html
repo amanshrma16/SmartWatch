@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OnePlus</title>
+  <link rel="icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="css/clock.css">
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="upper">
+
+        </div>
+                <h1 class="a12">12</h1>
+                <h1 class="a3">3</h1>
+                <h1 class="a6">6</h1>
+                <h1 class="a9">9</h1>
+<a href="/icons" class="bttn"> <i class="arrow left"></i></a>
+                <div class="nob"></div>
+                <div class="dial">
+                </div>
+<img class="img" src="images/one-plus.png" alt="">
+        <div class="hand hour-hand "></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+
+
+        <a href="icons" class="bttn"> <i class="arrow right"></i></a>
+        <div class="lower">
+      </div>
+
+    </div>
+
+
+
+  <div class="home">
+    <!-- <img class="home-img" src="images/home2.png" alt="">
+    <a href="/"> <h1 class="home-text">HOME</h1></a> -->
+    <a href="/"><button class="btn button3" type="submit" name="button">HOME</button></a>
+  </div>
+
+  <div class="buy">
+  <a href="/checkout"><button class="btn2 button3" type="submit" name="button">Buy</button></a>
+  </div>
+
+
+  <script>
+    const secondHand = document.querySelector('.second-hand');
+    const minsHand = document.querySelector('.min-hand');
+    const hourHand = document.querySelector('.hour-hand');
+
+    function setDate() {
+      const now = new Date();
+
+      const seconds = now.getSeconds();
+      const secondsDegrees = ((seconds / 60) * 360) + 90;
+      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+      const mins = now.getMinutes();
+      const minsDegrees = ((mins / 60) * 360) + ((seconds/60)*6) + 90;
+      minsHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+      const hour = now.getHours();
+      const hourDegrees = ((hour / 12) * 360) + ((mins/60)*30) + 90;
+      hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+
+      if(secondsDegrees===0){
+
+      }
+    }
+
+    setInterval(setDate, 1000);
+
+    setDate();
+
+
+
+  </script>
+</body>
+</html>

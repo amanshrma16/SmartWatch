@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>OnePlus</title>
+		<link rel="icon" href="/images/favicon.ico">
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css?family=Oxygen+Mono"
+			rel="stylesheet"
+		/>
+		<!-- <link rel="stylesheet" href="brain/css/style.css" /> -->
+		<!-- <link rel="icon" type="image/png" href="brain/img/fav.png" /> -->
+	</head>
+	<body>
+
+
+        <div class="clock">
+          <div class="clock-face">
+						<div class="upper">
+
+						</div>
+                    <a href="icons" class="bttn"> <i class="arrow left"></i></a>
+
+                    <div class="dial">
+                    </div>
+
+                    <div id="calculator">
+                			<div id="result">0</div>
+                			<button onclick="cls();">AC</button>
+                      <button onclick="num(this.innerHTML);">1</button>
+                			<button onclick="num(this.innerHTML);">2</button>
+                			<button onclick="num(this.innerHTML);">3</button>
+                      <button onclick="num(this.innerHTML);">4</button>
+                			<button onclick="num(this.innerHTML);">5</button>
+                			<button onclick="num(this.innerHTML);">6</button>
+                			<button onclick="num(this.innerHTML);">7</button>
+                			<button onclick="num(this.innerHTML);">8</button>
+                			<button onclick="num(this.innerHTML);">9</button>
+                      <button onclick="num(this.innerHTML);">0</button>
+                			<button onclick="calc(this.innerHTML);">/</button>
+
+                			<button onclick="calc(this.innerHTML);">*</button>
+
+                			<button onclick="calc(this.innerHTML);">-</button>
+
+                				<button onclick="calc(this.innerHTML);">+</button>
+                			<button onclick="total();">=</button>
+
+                			<div id="smallResult"></div>
+                		</div>
+
+
+            <a href="icons" class="bttn"> <i class="arrow right"></i></a>
+						  <div class="lower">
+          </div>
+        </div>
+
+				<div class="home">
+					<!-- <img class="home-img" src="images/home2.png" alt="">
+					<a href="/"> <h1 class="home-text">HOME</h1></a> -->
+					<a href="/"><button class="btn button3" type="submit" name="button">HOME</button></a>
+				</div>
+
+				<div class="buy">
+				<a href="/checkout"><button class="btn2 button3" type="submit" name="button">Buy</button></a>
+				</div>
+
+
+
+    <style >
+      /* * {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+} */
+html {
+
+  font-family: 'helvetica neue';
+  text-align: center;
+  font-size: 10px;
+}
+
+body {
+  background-color: #E4E9FD;
+  /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  min-height: 1000px; */
+    /* background: radial-gradient(circle farthest-side, red, black); */
+		  background-image: radial-gradient(circle, white,red , black);
+
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+}
+.bttn{
+  position: absolute;
+  left:470px;
+  top:170px;
+
+
+}
+
+.clock {
+  background-color: black;
+  width: 40rem;
+  height: 40rem;
+  border: 7px solid black;
+  border-radius: 20%;
+  margin: 50px auto;
+  position: relative;
+  padding: 2rem;
+  box-shadow:
+    0 0 0 4px rgba(0,0,0,0.1),
+    inset 0 0 0 3px #EFEFEF,
+    inset 0 0 10px black,
+    0 0 10px rgba(0,0,0,0.2);
+}
+
+.clock-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px); /* account for the height of the clock hands */
+}
+
+.hand {
+  width: 40%;
+  height: 6px;
+  background: white;
+  position: absolute;
+  top: 45%;
+  left:10%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition:all 0.5s;
+  transition-timing-function: cubic-bezier(0.26, 3.46, 0.58, 1);
+}
+.hour-hand{
+  width:25%;
+  position: absolute;
+  top: 180px;
+  left:100px;
+}
+.upper{
+	height: 93px;
+	width: 200px;
+	background-color: black;
+	position: absolute;
+	right:100px;
+	bottom:420px;
+  display: inline-block;
+  border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.lower{
+	height: 90px;
+	width: 200px;
+	background-color: black;
+	position: absolute;
+	right:97px;
+	top:430px;
+  display: inline-block;
+  border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.arrow {
+border: solid black;
+border-width: 0 3px 3px 0;
+display: inline-block;
+padding: 3px;
+}
+
+.right {
+position: absolute;
+top:36px;
+transform: rotate(-45deg);
+-webkit-transform: rotate(-45deg);
+}
+
+.left {
+position: absolute;
+right:545px;
+top:36px;
+transform: rotate(135deg);
+-webkit-transform: rotate(135deg);
+}
+
+.dial{
+background-color: black;
+height: 40px;
+width: 20px;
+border-radius: 20%;
+position: relative;
+top:189px;
+left:425px;
+z-index: 1;
+}
+
+.img{
+height:50px;
+weight:50px;
+position: relative;
+bottom:280px;
+}
+.home{
+position: relative;
+bottom:300px;
+right:600px;
+}
+.home-img{
+height: 60px;
+width: 60px;
+}
+.home-text{
+font-size: 25px;;
+}
+
+
+
+#calculator {
+	position: relative;
+	border-radius: 7px;
+	margin: auto;
+	margin-top: 20px;
+	display: block;
+	height: auto;
+	width: 278px;
+	background-color: black;
+	font-size: 0.8em;
+	padding: 5px;
+	max-width: 320px;
+}
+#calculator:before,
+#calculator:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+	top: 10px;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	-moz-border-radius: 100px / 10px;
+	border-radius: 100px / 10px;
+}
+#calculator:after {
+	right: 10px;
+	left: auto;
+	-webkit-transform: skew(8deg) rotate(3deg);
+	-moz-transform: skew(8deg) rotate(3deg);
+	-ms-transform: skew(8deg) rotate(3deg);
+	-o-transform: skew(8deg) rotate(3deg);
+	transform: skew(8deg) rotate(3deg);
+}
+
+#smallResult {
+	position: absolute;
+	top: 3px;
+	right: 10px;
+  color:black;
+  padding-right:10px;
+  padding-top:5px;
+}
+
+#result {
+	width: 97%;
+  height:60px;
+	padding: 15px 5px;
+	text-align: right;
+	font-size: 2.5em;
+	font-family: 'Oxygen Mono', monospace;
+	background: inherit;
+	color: black;
+  background-color:white;
+  border-radius:20px;
+  margin-bottom:15px;
+}
+
+button {
+	width: 48px;
+	height: 40px;
+	margin: 4px 2px;
+	outline: none;
+	border: none;
+	background: rgb(223, 223, 223);
+	color: black;
+	border-radius: 5px;
+	font-size: 1.4em;
+}
+
+button:active {
+	background: #bfbfbf;
+}
+
+button:nth-child(2) {
+	margin-left: 228px;
+	display: block;
+	background: #ef4a49;
+	color: white;
+}
+
+button:nth-child(2):active {
+	background: #b14e4d;
+}
+
+button:nth-child(13),
+button:nth-child(14),
+button:nth-child(15),
+button:nth-child(17),
+button:nth-child(16),
+button:nth-child(18) {
+	background: #00b49a;
+	color: black;
+}
+
+button:nth-child(11):active,
+button:nth-child(10):active,
+button:nth-child(14):active,
+button:nth-child(17):active,
+button:nth-child(18):active {
+	background: #218d7e;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	padding: 20px;
+	width: 100%;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+.home{
+position: relative;
+bottom:273px;
+right:600px;
+}
+
+.buy{
+  position: absolute;
+  bottom:150px;
+  left:800px;
+}
+.buy-img{
+height: 60px;
+width: 60px;
+}
+a:link {
+  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+.btn {
+  width: 150px;
+
+  height: 70px;
+background-color: black;
+  border: none;
+  /* color: white; */
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 50px 150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.btn2{
+  width: 150px;
+  height: 70px;
+background-color: black;
+  border: none;
+  /* color: white; */
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 30px -150px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button3 {
+  /* background-color: white; */
+  color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+.button3:hover {
+  background-color:white;
+  border: 2px solid black;
+  color: red;
+  font-size:20px;
+  height: 70px;
+}
+
+
+@media (max-width :997px){
+.home{
+  position: absolute;
+  top:450px;
+  right:300px;
+}
+.buy{
+  position: absolute;
+  top:470px;
+ left:520px;
+
+}
+}
+    </style>
+		<script >
+      var result = document.getElementById('result');
+var smallResult = document.getElementById('smallResult');
+var cal = false;
+var val_1 = false;
+var val_2 = false;
+var oper = '+';
+var operPressed = false;
+var tot = 0;
+var cal_done = false;
+var currentStatus = 0;
+var o;
+
+function num(val) {
+	val = val.toString(); // converting to string so it won't be added together in display (2 + '2' should not do '22')
+
+	if (cal_done)
+		// if calculation is done
+		cls(); // clear everything
+
+	if (!operPressed) {
+		// if no operator is pressed (means it's first value)
+		if (!val_1) val_1 = 0;
+
+		val_1 = val_1 + val;
+
+		val_1 = lengthFix(val_1); // limiting to 12
+
+		result.innerHTML = val_1;
+		smallResult.innerHTML = val_1;
+		// console.log('num to be calc: ' + val_1);
+	}
+	if (operPressed) {
+		// if operator is pressed (means it's 2nd value)
+		if (!val_2) val_2 = 0;
+
+		val_2 = val_2 + val;
+
+		val_2 = lengthFix(val_2); // limiting to 12
+
+		result.innerHTML = val_2;
+		smallResult.innerHTML = val_1 + oper + val_2;
+		// console.log('2nd num to be calc: ' + val_2);
+	}
+}
+
+// when /,*,+,- is clicked
+function calc(val) {
+	if (val_1 && val_2) {
+		operPressed = true;
+		total();
+		oper = val;
+	}
+
+	if (cal_done) {
+		var x = (val_1 = tot);
+		cls();
+		val_1 = x;
+		val_1 = lengthFix(val_1); // limiting to 12
+		result.innerHTML = val; // display which operator is selected
+		// var a = smallResult.innerHTML.toString();
+		smallResult.innerHTML = +x + val;
+		oper = val;
+		operPressed = true;
+	}
+
+	if (!val_1 || operPressed) {
+		return false;
+	}
+
+	if (val_1 && !val_2) {
+		result.innerHTML = val; // display which operator is selected
+		var a = smallResult.innerHTML.toString();
+		smallResult.innerHTML = a + val;
+		oper = val;
+		operPressed = true;
+	}
+}
+
+function total() {
+	if (!val_1) return false;
+
+	if (!val_2 && operPressed) {
+		tot = magic(val_1, val_1, oper);
+		tot = lengthFix(tot);
+	}
+
+	if (val_1 && val_2) {
+		tot = magic(val_1, val_2, oper);
+		tot = lengthFix(tot);
+	}
+
+	tot = tot.toString();
+	var noDec = tot.indexOf('.') == -1;
+	if (!noDec) tot = parseFloat(tot).toFixed(3);
+
+	result.innerHTML = tot;
+	// smallResult.innerHTML = tot;
+	// console.log('total: ' + tot);
+}
+
+function magic(a, b, oper) {
+	switch (oper) {
+		case '+':
+			tot = +a + +b;
+			cal_done = true;
+			break;
+		case '-':
+			tot = +a - +b;
+			cal_done = true;
+			break;
+		case '/':
+			tot = +a / +b;
+			cal_done = true;
+			break;
+		case '*':
+			tot = +a * +b;
+			cal_done = true;
+			break;
+		default:
+			return false;
+	}
+	return tot;
+}
+
+// clearing everything...
+function cls() {
+	smallResult.innerHTML = '';
+	result.innerHTML = 0;
+	val_1 = false;
+	val_2 = false;
+	oper = '+';
+	tot = 0;
+	cal_done = false;
+	operPressed = false;
+}
+
+function lengthFix(o) {
+	o = o.toString();
+
+	if (o != 0 || o != '0') {
+		if (o.charAt(0) == 0) o = o.slice(1);
+	}
+
+	if (o.toString().length > 12) o = o.substring(0, 12);
+
+	return o;
+}
+
+document.onkeyup = function(e) {
+	if (e.which == 110 || e.which == 190) num('.');
+	if (e.which == 96 || e.which == 48) num('0');
+	if (e.which == 97 || e.which == 49) num('1');
+	if (e.which == 98 || e.which == 50) num('2');
+	if (e.which == 99 || e.which == 51) num('3');
+	if (e.which == 100 || e.which == 52) num('4');
+	if (e.which == 101 || e.which == 53) num('5');
+	if (e.which == 102 || e.which == 54) num('6');
+	if (e.which == 103 || e.which == 55) num('7');
+	if (e.which == 104 || e.which == 56) num('8');
+	if (e.which == 105 || e.which == 57) num('9');
+
+	if (e.which == 111) calc('/');
+	if (e.which == 106) calc('*');
+	if (e.which == 107) calc('+');
+	if (e.which == 109) calc('-');
+
+	if (e.which == 13) total();
+
+	if (e.which == 8 || e.which == 46) cls();
+
+	if (e.which == 27) cls();
+};
+    </script>
+	</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="upper">
+
+        </div>
+            <h1></h1>
+            <audio controls>
+  <source src="horse.ogg" type="audio/ogg">
+  <source src="horse.mp3" type="audio/mpeg">
+
+            </audio>
+
+
+        <a href="icons" class="bttn"> <i class="arrow right"></i></a>
+        <div class="lower">
+      </div>
+    </div>
+
+
+
+  <div class="home">
+    <img class="home-img" src="images/home.png" alt="">
+    <h1 class="home-text">HOME</h1>
+  </div>
+  <style>
+    html {
+
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      color: white;
+      background-color: #E4E9FD;
+      /* background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+      min-height: 1000px; */
+  /* background: radial-gradient(circle farthest-side, red, black); */
+    background-image: radial-gradient(circle, white,red , black);
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+    }
+    .bttn{
+      position: absolute;
+      left:470px;
+      top:170px;
+
+
+    }
+
+    .clock {
+
+      background-color: black;
+      width: 40rem;
+      height: 40rem;
+      border: 7px solid black;
+      border-radius: 20%;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .hand {
+      width: 40%;
+      height: 6px;
+      background: white;
+      position: absolute;
+      top: 45%;
+      left:10%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition:all 0.5s;
+      transition-timing-function: cubic-bezier(0.26, 3.46, 0.58, 1);
+    }
+    .hour-hand{
+      width:25%;
+      position: absolute;
+      top: 180px;
+      left:100px;
+    }
+    .upper{
+      height: 90px;
+      width: 200px;
+      background-color: black;
+      position: absolute;
+      left:100px;
+      bottom:450px;
+      display: inline-block;
+      border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        ;
+    }
+    .lower{
+      height: 94px;
+      width: 200px;
+      background-color: black;
+      position: fixed;
+      left:103px;
+      bottom:-95px;
+      display: inline-block;
+      border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  position: absolute;
+  top:10px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  position: absolute;
+  right:545px;
+  top:10px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.dial{
+  background-color: black;
+  height: 40px;
+  width: 20px;
+  border-radius: 20%;
+  position: relative;
+  bottom:204px;
+  left:425px;
+  z-index: 1;
+}
+
+.img{
+  height:50px;
+  weight:50px;
+  position: relative;
+  bottom:280px;
+}
+.home{
+  position: relative;
+  bottom:300px;
+  right:600px;
+}
+.home-img{
+  height: 60px;
+  width: 60px;
+}
+.home-text{
+  font-size: 25px;;
+}
+.mg{
+  height: 130px;
+
+}
+  </style>
+
+
+  <script>
+  const song=[
+    {
+      title:"rockstar",
+  			artist: "Post Malone, 21 Savage",
+      cover:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/308622/rockstar-album-cover.jpg",
+      audiofile:"https://s3-us-west-2.amazonaws.com/s.cdpn.io/308622/Post%20Malone%20-%20rockstar%20ft.%2021%20Savage%20(1).mp3"
+    }
+  ]
+
+  </script>
+</body>
+</html>
